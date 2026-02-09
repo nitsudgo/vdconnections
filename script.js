@@ -359,7 +359,7 @@ function setGame(gameCategories) {
     wordTile.setAttribute("class", "game-tile");
     wordTile.addEventListener("click", () => selectGameTile(wordTile));
     gameBoard.appendChild(wordTile);
-    // shuffleBoard();
+    shuffleBoard();
   }
 
   // Populate Mistakes Remaining
