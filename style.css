@@ -1,0 +1,222 @@
+html {
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "Quicksand", sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+button {
+    border: 2px solid #121212;
+    background-color: transparent;
+    padding-block: 0.75rem;
+    padding-inline: 1rem;
+    border-radius: 100rem;
+}
+
+button#submit {
+    color: #efefe6;
+    background-color: #121212;
+}
+
+button:disabled {
+    border: 2px solid gray;
+    color: gray;
+}
+
+button#submit:disabled {
+    border: 2px solid gray;
+    background-color: transparent;
+    color: gray;
+}
+
+@keyframes tilt-shaking {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(5deg);
+    }
+    50% {
+        transform: rotate(0eg);
+    }
+    75% {
+        transform: rotate(-5deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+button.error {
+    animation: tilt-shaking 0.15s infinite;
+    background-color: red;
+}
+#header {
+    font-size: 10pt;
+}
+
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+}
+
+#answer-board {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.answer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    /*height: 6rem;*/
+    width: 100%;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.answer-container:nth-child(4) {
+    margin-bottom: 0rem;
+}
+
+.answer-container.level-1 {
+    background-color: goldenrod;
+}
+.answer-container.level-2 {
+    background-color: mediumseagreen;
+}
+.answer-container.level-3 {
+    background-color: skyblue;
+}
+.answer-container.level-4 {
+    background-color: mediumpurple;
+}
+
+.answer-category {
+    font-weight: bold;
+}
+
+.game-tile {
+    padding: 4px;
+    font-size: 11pt;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    aspect-ratio: 1/1;
+    /*max-width: 6rem;*/
+    width: 71.5px;
+    background-color: #efefe6;
+    color: #121212;
+    border-radius: 0.5rem;
+    font-weight: 600;
+
+    -webkit-transition: background-color 250ms linear;
+    -ms-transition: background-color 250ms linear;
+    transition: background-color 250ms linear;
+
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.game-tile.selected {
+    background-color: #5a594e;
+    color: #f8f8f8;
+}
+
+#mistakes-remaining-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    text-align: right;
+    font-size: 10pt;
+}
+
+#mistakes-remaining {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    overflow: visible;
+}
+
+.controls-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+#next-game-container {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    transition: all 0.5s ease-out;
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+#next-game-container.hide {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+}
+
+button#success-button {
+    border: 0;
+    font-size: 14pt;
+    font-weight: bold;
+}
+
+button#success-button span {
+    display: inline-block;
+    animation: wave 2s ease-in-out infinite;
+    animation-delay: calc(0.1s * var(--i));
+}
+
+@keyframes wave {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+#success-image {
+    width: 8rem;
+}
+
+.congrats-image {
+    width: 100%;
+}
+
+.congrats-text {
+    text-align: center;
+    padding-inline: 2rem;
+}
